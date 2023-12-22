@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="row my-5 text-center">
+            <h2 class="text-secondary">Students List</h2>
+    </div>
+    <div class="row">
+         <% for(student of student){%>
+            <div class="col-md-3">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="/images/profile_picture.jpg" class="img-fluid rounded-start" alt="student_profile" title="student_profile" width="100px">
+                    </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title"><%=student.name%></h5>
+                          <small class="text-body-secondary d-block">Batch: <%=student.batch%> </small>
+                          <small class="text-body-secondary d-block">college: <%=student.college%></small>
+                          <small class="text-body-secondary d-block">status: <b><%=student.status%></b></small>
+                          <small class="text-body-secondary d-block">DSAFinalScore: <%=student.DSAFinalScore%></small>
+                          <small class="text-body-secondary d-block">WebDFinalScore: <%=student.WebDFinalScore%></small>
+                          <small class="text-body-secondary d-block">ReactFinalScore: <%=student.ReactFinalScore%></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+         <%}%>
+         
+    </div>
+    <div class="row text-center my-3 d-flex justify-content-center"  >
+        <h2 class="text-secondary">Add New Student</h2>
+        <form action="/students/add-students" method="post" class="d-flex justify-content-center">
+            <div class="col-6 my-5">
+                <div class="row my-4 d-flex justify-content-between">
+                    <div class="col-6">
+                      <input  type="text" class="form-control" placeholder="Name" name="name" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="form-control" placeholder="Batch" name="batch" required>
+                    </div>
+                  </div>
+                <div class="row my-4 d-flex justify-content-between">
+                    <div class="col-6">
+                      <input  type="text" class="form-control" placeholder="College" name="college" required>
+                    </div>
+                    <div class="col-6">
+                      <select name="status" class="form-select" required>
+                        <option value="" disabled selected>Status</option>
+                        <option value="placed">Placed</option>
+                        <option value="not-placed">Not Placed</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row my-4 d-flex justify-content-between">
+                    <div class="col-6">
+                      <input  type="number" class="form-control" placeholder="DSAFinalScore" name="DSAFinalScore" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="number" class="form-control" placeholder="WebDFinalScore" name="WebDFinalScore" required>
+                    </div>
+                  </div>
+                  <div class="row my-4 d-flex justify-content-between">
+                    <div class="col-6">
+                      <input  type="number" class="form-control" placeholder="ReactFinalScore" name="ReactFinalScore" required>
+                    </div>
+                  </div>
+                  <div class="row my-4 d-flex justify-content-between">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Add Studnet</button>
+                    </div>
+                  </div>
+                  
+            </div>
+        </form>
+    </div>
+</div>
