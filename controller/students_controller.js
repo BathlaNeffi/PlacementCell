@@ -2,7 +2,7 @@ const Student= require('../models/student');
 module.exports.studentsPage=async(req,res)=>{
     try {
         if(req.isAuthenticated()){
-            const student=await Student.find({});
+            const student=await Student.find({}).sort('-createdAt');
             return res.render('students',{
                 title:'Students',
                 student:student
