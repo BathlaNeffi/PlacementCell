@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/css/sign-in.css">
+<div class="container-fluid bg-primary position-fixed d-flex justify-content-center" style="height:100vh;">
+    <div class="row" id="signin-conatiner" style="height: 100px; ">
+        <div class="col-4 w-100 d-flex justify-content-center p-2" >
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4 p-2">
+                    <img src="/images/profile_picture.jpg" class="img-fluid rounded-start" alt="profile_picture" title="profile_picture" width="150px">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><%=locals.user.name%></h5>
+                      <p class="card-text"><small class="text-body-secondary"><%=locals.user.email%></small></p>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <button class="btn btn-outline-dark"><a href="/employees/forgotPasswordPage" style="text-decoration:none; color: inherit;">Update Profile</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

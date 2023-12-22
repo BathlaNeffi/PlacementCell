@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/css/sign-up.css">
+<div class="container-fluid bg-primary position-fixed  d-flex justify-content-center" style="height: 100vh;">
+    <div class="row" id="signin-conatiner" style="height: 100px;">
+        <div class="col-4 w-100 d-flex justify-content-center p-2" >
+            <div class="card " style="width: 30vw;">
+                <div class="card-body">
+                  <h2 class="card-title text-center">Signup</h2>
+                  <form action="/employees/create" method="post">
+                        <div class="form-floating mb-3">
+                          <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" name="email">
+                          <label for="emailInput">Email address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="nameInput" placeholder="name@example.com" name="name">
+                          <label for="nameInput">Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="password" class="form-control" id="passwordInput" placeholder="Password" name="password">
+                          <label for="passwordInput">Create Password</label>
+                        </div>
+                        <div class="form-floating">
+                          <input type="password" class="form-control" id="confirmPasswordInput" placeholder="Password" name="confirmPassword">
+                          <label for="confirmPasswordInput">Confirm Password</label>
+                        </div>
+                        <br>
+                        <input type="submit" value="Sign Up" class="btn btn-primary w-100 fs-5">
+                        <br>
+                  </form>
+                  <div class="text-center mt-2 p-2">
+                    <Span >Already have an account? </Span><a href="/employees/sign-in">Sign in</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
