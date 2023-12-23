@@ -54,7 +54,7 @@ module.exports.downloadCSV = async (req, res) => {
   
       writeableStream.on("finish", function () {
         return res.json({
-         downloadURL: `http://localhost:9000/files/export/students.csv`,
+         downloadURL: `${process.env.PLACEMENT_CELL_URL}/files/export/students.csv`,
         });
       });
       if (students.length > 0) {

@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const port = 9000;
+require('dotenv').config();
+const port = process.env.PLACEMENT_CELL_PORT;
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser');
@@ -39,7 +40,7 @@ app.use(expressLayouts);
 // seeing up session and secret key for passport authentication
 app.use(session({
     name: 'placementCell',
-    secret: 'blabla',
+    secret: process.env.PLACEMENT_CELL_SESSION_COOKIE,
     resave: false,
     saveUninitialized: false,
     cookie: { 
