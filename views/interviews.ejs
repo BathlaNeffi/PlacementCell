@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row my-5 text-center">
+            <h2 class="text-secondary">Interviews List</h2>
+    </div>
+    <div class="row">
+      <% for(interview of interview) { %> 
+            <div class="col-md-3 " >
+                <div class="card mb-3 bg-light" style="max-width: 540px;">
+                    <div class="row g-0 d-flex align-items-center">
+                      <div class="col-md-4">
+                        <img src="/images/interview.png" class="img-fluid rounded-start rounded-end" alt="student_profile" title="student_profile" width="100%">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= interview.company %></h5>
+                          <small class="text-body-secondary"><%=interview.date%></small>
+                          <small class="text-danger fs-5"> &nbsp;<a href="/interviews/details/?id=<%=interview.id%>" style="color: inherit;">Details</a></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <%}%>
+         
+    </div>
+    <div class="row text-center my-3 d-flex justify-content-center"  >
+        <h2 class="text-secondary">Add New Interview</h2>
+        <form action="/interviews/add-interviews" method="post" class="d-flex justify-content-center">
+            <div class="col-6 my-5">
+                <div class="row my-4 d-flex justify-content-between">
+                    <div class="col-6">
+                      <input  type="text" class="form-control" placeholder="Company Name" name="company" required>
+                    </div>
+                    <div class="col-6">
+                      <input type="date" class="form-control" name="date" required>
+                    </div>
+                  </div>
+                  <div class="row my-4 d-flex justify-content-between">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Add Interview</button>
+                    </div>
+                  </div>
+                  
+            </div>
+        </form>
+    </div>
+</div>

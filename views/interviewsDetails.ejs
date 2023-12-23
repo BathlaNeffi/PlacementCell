@@ -1,0 +1,101 @@
+<div class="container-fluid">
+    <div class="row my-5 text-center">
+            <h2 class="text-secondary">Interviews Details</h2>
+    </div>
+    <div class="row d-flex justify-content-center"> 
+            <div class="col-md-8">
+                <div class="card mb-3 bg-light" style="max-width: auto;">
+                    <div class="row g-0 d-flex align-items-center">
+                      <div class="col-md-4">
+                        <img src="/images/interview.png" class="img-fluid rounded-start rounded-end" alt="student_profile" title="student_profile" width="100%">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title"><%=interviewDetail.company%><h5>
+                        <small class="text-body-secondary"><%=interviewDetail.date%></small>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+            </div>
+    </div>
+    <div class="row my-5 text-center">
+        <h2 class="text-secondary">Students List</h2>
+    </div>
+    <div class="row">
+        <% for(student of allocatedStudents){%>
+            <div class="col-md-3 " >
+                <div class="card mb-3 bg-warning" style="max-width: 540px;">
+                    <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/images/profile_picture.jpg" class="img-fluid rounded-start rounded-circle" alt="student_profile" title="student_profile" width="100px">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title"><%=student.name%></h5>
+                        <small class="text-body-secondary d-block">Batch: <%=student.batch%> </small>
+                        <small class="text-body-secondary d-block">college: <%=student.college%></small>
+                        <small class="text-body-secondary d-block">status: <b><%=student.status%></b></small>
+                        <small class="text-body-secondary d-block">DSAFinalScore: <%=student.DSAFinalScore%></small>
+                        <small class="text-body-secondary d-block">WebDFinalScore: <%=student.WebDFinalScore%></small>
+                        <small class="text-body-secondary d-block">ReactFinalScore: <%=student.ReactFinalScore%></small>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <div class="row text-center my-3 d-flex justify-content-center"  >
+        <h2 class="text-secondary">Mark Result</h2>
+        <form action="/interviews/details/mark-result/?id=<%=interviewDetail.id%>" method="post" class="d-flex justify-content-center">
+            <div class="col-6 my-5">
+                <div class="row my-4 d-flex justify-content-between">
+                    <div class="col-4">
+                      <select name="id"  class="form-select" id="" required>
+                        <option value="" disabled  selected>Student Name</option>
+                        <% for(student of students){%>
+                            <option value="<%=student.id%>"><%=student.name%></option>
+                        <%}%>
+                      </select>
+                    </div>
+                    <div class="col-4">
+                      <select name="result" id="" required class="form-select">
+                        <option value="" disabled selected>Mark</option>
+                        <option value="pass">PASS</option>
+                        <option value="fail">FAIL</option>
+                        <option value="on-hold">On Hold</option>
+                        <option value="did-not-attempt">Did'nt Attempt</option>
+                      </select>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary">Mark</button>
+                      </div>
+                  </div>
+                  
+            </div>
+        </form>
+    </div>
+    <div class="row text-center my-3 d-flex justify-content-center"  >
+        <h2 class="text-secondary">Allocate New Student</h2>
+        <form action="/interviews/details/allocate/?id=<%=interviewDetail.id%>" method="post" class="d-flex justify-content-center">
+            <div class="col-6 my-5">
+                <div class="row my-4 d-flex justify-content-between">
+                    <div class="col-8">
+                      <select name="id"  class="form-select" id="" required>
+                        <option value="" disabled  selected>Student Name</option>
+                        <% for(student of students){%>
+                            <option value="<%=student.id%>"><%=student.name%></option>
+                        <%}%>
+                      </select>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary">Allocate</button>
+                      </div>
+                  </div>
+                  
+            </div>
+        </form>
+    </div>
+</div>
