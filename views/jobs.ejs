@@ -1,0 +1,16 @@
+<div class="container d-flex justify-content-center">
+    <div class="row  d-flex justify-content-center my-5 bg-secondary">
+        <% for(data of data.results){ %> 
+        <div class="col-12 my-5">
+            <div class="card" style="width: auto">
+                <div class="card-body">
+                  <h5 class="card-title"><%=data.name%></h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary"><%=data.categories[0].name%></h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="<%=data.refs.landing_page%>" target="_blank" class="card-link">Apply</a>
+                </div>
+              </div>
+        </div>
+        <%}%>
+    </div>
+</div>

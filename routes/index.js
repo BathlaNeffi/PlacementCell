@@ -6,5 +6,6 @@ router.get('/',homeController.home);
 router.use('/employees',require('./employees'));
 router.use('/students',require('./students'));
 router.use('/interviews',require('./interviews'));
+router.use('/jobs',require('./jobs'));
 
 module.exports=router;
