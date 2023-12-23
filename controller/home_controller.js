@@ -4,7 +4,7 @@ module.exports.home=async(req,res)=>{
     try {
         if(req.isAuthenticated()){
             return res.render('home.ejs',{
-                title:'Hero'
+                title:'Home'
             });
         }
         else{

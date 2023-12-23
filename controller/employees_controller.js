@@ -36,11 +36,13 @@ module.exports.create= async(req,res)=>{
                 const employeeCreated=await Employee.create(req.body);
                 
                     if(employeeCreated){
+                        req.flash('success','Sign-up Successful');
                         return res.redirect('/employees/sign-in');
                     }
                     
                 } else{
-                    console.log('user Already Exist');
+                    req.flash('error','You are already signed-up!')
+                    // console.log('user Already Exist');
                 return res.redirect('back');
             }
     }catch(err){
@@ -51,6 +53,7 @@ module.exports.create= async(req,res)=>{
 
 module.exports.createSession=async(req,res)=>{
     // console.log(req.body);
+    req.flash('success','Logging in Successful');
     return res.redirect('/')
 };
 
@@ -61,7 +64,7 @@ module.exports.destroySession=async (req,res)=>{
         
             if(err){console.log(err);
             }
-            // req.flash('success','You have LoggedOut!!');
+            req.flash('success','You have LoggedOut!!');
             
             return res.redirect('/employees/sign-in');
         });
@@ -88,7 +91,8 @@ module.exports.forgotPasswordForm=async(req,res)=>{
         if(req.isAuthenticated()){
 
             await req.logout( (err)=>{
-                if(err){console.log(err);}
+                if(err){//console.log(err); 
+                        }
                         // req.flash('success','You have LoggedOut!!');
                         // return res.redirect('/employees/sign-in');
                      });
@@ -98,6 +102,7 @@ module.exports.forgotPasswordForm=async(req,res)=>{
             };
             const employee=await Employee.findOneAndUpdate({email: req.body.email},{password:req.body.password});
             if(employee){
+                req.flash('success','your password is updated');
                 return res.redirect('/employees/sign-in');
                 } else{
                     console.log('error in updating');

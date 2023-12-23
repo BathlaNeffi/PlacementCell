@@ -11,7 +11,7 @@ passport.use(new LocalStrategy( {
         try {
            const employee= await  Employee.findOne({ email: email });
                 if (!employee || employee.password!= password) { 
-                    // req.flash('error','Invalid username/Password');
+                    req.flash('error','Invalid username/Password');
                     console.log('Invalid username/Password');
                     return done(null, false); 
                 }

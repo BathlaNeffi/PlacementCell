@@ -21,6 +21,7 @@ module.exports.interviewPage=async(req,res)=>{
 module.exports.addInterviews= async(req,res)=>{
     try {
         const interview=await Interview.create(req.body);
+        req.flash('success','Company added to interview List');
         return res.redirect('back');
     } catch (error) {
         console.log('Error:' ,error);
@@ -63,8 +64,8 @@ module.exports.markResult=async(req,res)=>{
             interview.results.push({student,result});
             await interview.save();
         
-        
-        console.log("success fully marked");
+            req.flash('success','success fully marked');
+        // console.log("success fully marked");
         return res.redirect('back');
 
     } catch (error) {
@@ -86,7 +87,7 @@ module.exports.allocate=async(req,res)=>{
         interview.students.push(student);
         await interview.save();
         
-        console.log("success", "Allocated Student to Interview Successfully");
+        re.flash("success", "Allocated Student to Interview Successfully");
         return res.redirect('back');
     } catch (error) {
         console.log('Error:' ,error);

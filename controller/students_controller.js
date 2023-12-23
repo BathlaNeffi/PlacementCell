@@ -18,6 +18,7 @@ module.exports.studentsPage=async(req,res)=>{
 module.exports.addStudents= async(req,res)=>{
     try {
         const student=await Student.create(req.body);
+        req.flash('success','Student added');
         return res.redirect('back');    
     } catch (error) {
         console.log('Error occured in adding student',error);
